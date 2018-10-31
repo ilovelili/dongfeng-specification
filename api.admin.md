@@ -4,7 +4,7 @@ HOST: `https://apis.admin.dongfeng.com/`
 
 # DongFeng Project - Administrator
 
-The API Specification for DongFeng project (Admin panel). Only teachers have the access to admin panel.
+The API Specification for DongFeng project (Admin panel). Only kindergarten teachers have the access to admin panel.
 
 ## Attendance [/attendance]
 

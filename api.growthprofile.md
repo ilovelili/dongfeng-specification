@@ -4,7 +4,7 @@ HOST: `https://apis.dongfeng.com/`
 
 # DongFeng Project - Growth Profile
 
-The API Specification for DongFeng project (Growth profile web application). Both parents and teachers have the access to growth profile.
+The API Specification for DongFeng project (Growth profile web application). Both parents and teachers have the access to growth profile. However we don't have features for parents in phase I.
 
 ## Login [/login]
 
@@ -25,34 +25,32 @@ Authenticate as a user with the JWT as the credentials. It should return the dat
         "email": "huhucat@gmail.com",
         "avatar": "/img/profile.jpg",
         "newuser": false,
-        "role": "parent | teacher"
+        "role": "teacher"
       },
       "teachers_online": 2,
-      "parents_online": 20, // show friend parents for parent users, while show all parents for teacher users
       "notifications": {
         "count": 13,
         "admin": [
           {
             id: 12,
+            notification_code: N0001,
             title: "关于2018年入学名单公布的通知",
+            content: "内容略"
             time: "2018-06-16T00:00:00.000Z"
-          }
-        ],
-        "friend": [
-          {
-            id: 36,
-            title: "您的好友XXX家长发布了成长相册",
-            time: "2018-06-15T00:00:00.000Z"
           },
           {
-            id: 37,
-            title: "您的好友YYY家长发布了成长相册",
-            time: "2018-06-15T00:00:00.000Z"
+            id: 13,
+            notification_code: N0001,
+            title: "停电通知",
+            content: "内容略"
+            time: "2018-06-16T00:00:00.000Z"
           }
-        ],
+        ]
         "teacher": [
           {
             id: 27,
+            user_id: "ABCDEFGHIJK",
+            notification_code: N1001,
             title: "今天去旅游咯",
             time: "2018-06-15T00:00:00.000Z"
           }
@@ -60,6 +58,8 @@ Authenticate as a user with the JWT as the credentials. It should return the dat
         "user": [
           {
             id: 69,
+            user_id: "AAABBBCCCDD",
+            notification_code: N1001,
             title: "第一次做手工课，有点紧张",
             time: "2018-06-15T00:00:00.000Z"
           }
