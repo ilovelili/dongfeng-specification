@@ -26,4 +26,4 @@ Base URL: `localhost:8080/api`
 
 ## Contact
 
-min<route666@live.cn>
+<route666@live.cn>

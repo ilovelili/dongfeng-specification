@@ -48,3 +48,9 @@ services:
     depends_on:    
     - dongfeng.svc.core.server
     - micro_api
+  # dongfeng.svc.websocket:    
+  #   image: ilovelili/dongfeng-websocket:latest
+  #   command: [
+  #     "./server"
+  #   ]  
+  #   restart: always 
