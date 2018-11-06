@@ -19,7 +19,7 @@ docker-compose up
 Base URL: `localhost:8080/api`
 
 | Method | URL | Note |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- |
 | `GET` | `/` | Health check |
 | `POST` | `/login` | login and return all the necessary data required by frontend. |
 | `POST` | `/logout` | logout |
