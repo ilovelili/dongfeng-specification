@@ -31,7 +31,7 @@ Authenticate as a user with the JWT as the credentials. It should return the dat
         {
           id: 12,
           user_id: "AgentSmith",
-          custom_code: "N001",
+          custom_code: "N7001",
           category: "系统广播",
           details: "{\"title\":\"关于2018年入学名单公布的通知\",\"content\":\"内容略\"}",
           link: "<https://www.dongfeng.edu/notifications/123>",
@@ -40,7 +40,7 @@ Authenticate as a user with the JWT as the credentials. It should return the dat
         {
           id: 13,
           user_id: "AgentSmith",
-          custom_code: "N001",
+          custom_code: "N7001",
           category: "系统广播",
           details: "{\"title\":\"停电通知\",\"content\":\"内容略\"}",
           time: "2018-06-16T00:00:00.000Z"
