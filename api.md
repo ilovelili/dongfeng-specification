@@ -18,54 +18,50 @@ Authenticate as a user with the JWT as the credentials. It should return the dat
       Authorization: Bearer XYZDSFDSF
 
 * Response 200 (application/json)
-    {
-      "id": 1,
-      "user": {
-        "name": "HuHu Cat",
-        "email": "huhucat@gmail.com",
-        "avatar": "/img/profile.jpg",
-        "newuser": false,
-        "role": "teacher"
-      },
-      "notifications": [
-        {
-          id: 12,
-          user_id: "AgentSmith",
-          custom_code: "N7001",
-          category: "系统广播",
-          details: "{\"title\":\"关于2018年入学名单公布的通知\",\"content\":\"内容略\"}",
-          link: "<https://www.dongfeng.edu/notifications/123>",
-          time: "2018-06-16T00:00:00.000Z"
-        },
-        {
-          id: 13,
-          user_id: "AgentSmith",
-          custom_code: "N7001",
-          category: "系统广播",
-          details: "{\"title\":\"停电通知\",\"content\":\"内容略\"}",
-          time: "2018-06-16T00:00:00.000Z"
-        },
-        {
-          id: 14,
-          user_id: "AbcEdxayyedGs",
-          custom_code: "N1001",
-          category: "成长档案",
-          details: "{\"title\":\"第一次做手工课，有点紧张\",\"content\":\"内容略\"}",
-          link: "<https://www.dongfeng.edu/growthprofile/1>",
-          time: "2018-06-16T00:00:00.000Z"
-        },
-        {
-          id: 14,
-          user_id: "AbcEdxayyedGs",
-          custom_code: "N1003",
-          category: "成长档案",
-          details: "{\"title\":\"今天去旅游咯\",\"content\":\"内容略\"}",
-          link: "<https://www.dongfeng.edu/growthprofile/3>",
-          time: "2018-06-16T00:00:00.000Z"
-        },
-      ]
-    }
-
+  {
+	id: 1,
+	user: {
+		name: "HuHu Cat",
+		email: "huhucat@gmail.com",
+		avatar: "/img/profile.jpg",
+		newuser: false,
+		role: "teacher"
+	}
+},
+	teachers_online: 2,
+	notifications: {
+		count: 13,
+		admin: [{
+				id: 12,
+				notification_code: N0001,
+				title: "关于2018年入学名单公布的通知",
+				content: "内容略"
+				time: "2018-06-16T00:00:00.000Z"
+			},
+			{
+				id: 13,
+				notification_code: N0001,
+				title: "停电通知",
+				content: "内容略"
+				time: "2018-06-16T00:00:00.000Z"
+			}
+		]
+		teacher: [{
+			id: 27,
+			user_id: "ABCDEFGHIJK",
+			notification_code: N1001,
+			title: "今天去旅游咯",
+			time: "2018-06-15T00:00:00.000Z"
+		}],
+		user: [{
+			id: 69,
+			user_id: "AAABBBCCCDD",
+			notification_code: N1001,
+			title: "第一次做手工课，有点紧张",
+			time: "2018-06-15T00:00:00.000Z"
+		}]
+	}
+}
 ### Update the user [PUT]
 
 Change and persist the user data.
