@@ -23,7 +23,7 @@ Authenticate as a user with the JWT as the credentials. It should return the dat
       "user": {
         "name": "HuHu Cat",
         "email": "huhucat@gmail.com",
-        "avatar": "/img/profile.jpg",
+        "avatar": "<https://www.gravatar.com/avatar/D077FC489D5587B5CFFE43DCEB9BA708?s=200>",
         "newuser": false,
         "role": "teacher"
       },
@@ -66,7 +66,34 @@ Authenticate as a user with the JWT as the credentials. It should return the dat
       ]
     }
 
-### Update the user [PUT]
+## Upload Avatar [/user/upload/]
+
+### Upload user avatar[POST]
+
+Create a permanent link for an image and return it to the user. The final image will be cropped to fit into a square with the smallest of the sides.
+
+* Request (multipart/form-data)
+  * Headers
+          Content-Type: "multipart/form-data"
+          Accepts: application/json
+          Authorization: Bearer XYZDSFDSF
+  * Body
+    image file, the file name should be `image`
+
+    example:
+    ```
+    <form>
+      <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
+      ...
+    </form>
+    ```
+* Response 200 (application/json)
+  * Body
+    {
+      "uri": "https://sgp1.digitaloceanspaces.com/dongfeng/1DNcl0ZchHaSbY4PHmckrmvGsQl_go.png"
+    }
+
+## Update user [/user/update]
 
 Change and persist the user data.
 
@@ -78,6 +105,7 @@ Change and persist the user data.
       {
         id: 1,
         name: "HuHu Cat",
+        avator: ""
       }
 
 * Response 200 (application/json)
@@ -85,27 +113,6 @@ Change and persist the user data.
       {
         status: "updated"
       }
-
-## Upload [/upload/]
-
-### Update the user avatar [POST]
-
-Create a permanent link for an image and return it to the user. The final image will be cropped to fit into a square with the smallest of the sides.
-
-* Request (application/json)
-  * Headers
-          Accepts: application/json
-          Authorization: Bearer XYZDSFDSF
-  * Body
-    {
-      "image": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAA ..."
-    }
-
-* Response 200 (application/json)
-  * Body
-    {
-      url: "...alicloud.com/xxx.png"
-    }
 
 ## Logout [/logout]
 
