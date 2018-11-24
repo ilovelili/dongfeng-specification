@@ -1,6 +1,6 @@
 FORMAT: 1A
 
-HOST: `https://apis.dongfeng.com/`
+HOST: `http://188.166.244.244/api`
 
 # DongFeng Project - Growth Profile
 
@@ -26,7 +26,23 @@ Authenticate as a user with the JWT as the credentials. It should return the dat
         "avatar": "<https://www.gravatar.com/avatar/D077FC489D5587B5CFFE43DCEB9BA708?s=200>",
         "newuser": false,
         "role": "teacher"
-      },
+      }
+    }
+
+## Dashboard [/dashboard]
+
+### Get dashboard data [POST]
+
+Authenticate as a user with the JWT as the credentials. It should return the data for the authenticated user.
+
+* Request (application/json)
+  * Headers
+      Accepts: application/json
+      Authorization: Bearer XYZDSFDSF
+
+* Response 200 (application/json)
+    {
+      "user_id": "AbcEdxayyedGs",
       "notifications": [
         {
           id: 12,
