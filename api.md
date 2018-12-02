@@ -31,7 +31,7 @@ Authenticate as a user with the JWT as the credentials. It should return the dat
 
 ## Dashboard [/dashboard]
 
-### Get dashboard data [POST]
+### Get dashboard data [GET]
 
 Authenticate as a user with the JWT as the credentials. It should return the data for the authenticated user.
 
@@ -111,7 +111,7 @@ Create a permanent link for an image and return it to the user. The final image 
 
 ## Update user [/user/update]
 
-Change and persist the user data.
+Change and persist the user data.[PUT]
 
 * Request (application/json)
   * Headers
@@ -119,16 +119,13 @@ Change and persist the user data.
       Authorization: Bearer XYZDSFDSF
   * Body
       {
-        id: 1,
         name: "HuHu Cat",
         avator: ""
       }
 
 * Response 200 (application/json)
   * Body
-      {
-        status: "updated"
-      }
+      {} (empty)
 
 ## Logout [/logout]
 
