@@ -254,9 +254,9 @@ Retrieve the growth profile list published by the user.
 
 ## Attendance [/attendance]
 
-### Get attendence list. [GET]
+### Get attendance list. [GET]
 
-Retrieve the attendence list.
+Retrieve the attendance list.
 
 * Request (application/json)
   * Headers
@@ -274,7 +274,7 @@ Retrieve the attendence list.
       "data": [
         {
             "date": "2018-06-20",
-            "attendences": [
+            "attendances": [
                 {
                     "id": 1,
                     "name": "HuHu Dog",
@@ -294,7 +294,7 @@ Retrieve the attendence list.
         },
         {
             "date": "2018-06-21",
-            "attendences": [
+            "attendances": [
                 {
                     "id": 1,
                     "name": "HuHu Dog",
@@ -315,7 +315,7 @@ Retrieve the attendence list.
       ]
     }
 
-### Upload attendence list excel. [POST]
+### Upload attendance list excel. [POST]
 
 * Headers
       Accepts: multipart/form-data
@@ -326,7 +326,7 @@ Retrieve the attendence list.
         "updatedcount": 100
     }
 
-### Update attendence list. [PUT]
+### Update attendance list. [PUT]
 
 * Headers
       Accepts: multipart/form-data
