@@ -6,9 +6,9 @@ HOST: `http://188.166.244.244/api`
 
 The API Specification for DongFeng project (Growth profile web application). Both parents and teachers have the access to growth profile. However we don't provide features for parents in phase I.
 
-## Login [/login]
+---
 
-### Login with the JWT [POST]
+## Login with the JWT [/login] [POST]
 
 Authenticate as a user with the JWT as the credentials. It should return the data for the authenticated user.
 
@@ -29,9 +29,7 @@ Authenticate as a user with the JWT as the credentials. It should return the dat
       }
     }
 
-## Dashboard [/dashboard]
-
-### Get dashboard data [GET]
+## Get dashboard data [/dashboard] [GET]
 
 Authenticate as a user with the JWT as the credentials. It should return the data for the authenticated user.
 
@@ -82,9 +80,7 @@ Authenticate as a user with the JWT as the credentials. It should return the dat
       ]
     }
 
-## Upload Avatar [/user/upload/]
-
-### Upload user avatar[POST]
+## Upload user avatar  [/user/upload/] [POST]
 
 Create a permanent link for an image and return it to the user. The final image will be cropped to fit into a square with the smallest of the sides.
 
@@ -109,9 +105,7 @@ Create a permanent link for an image and return it to the user. The final image 
       "uri": "https://sgp1.digitaloceanspaces.com/dongfeng/1DNcl0ZchHaSbY4PHmckrmvGsQl_go.png"
     }
 
-## Update user [/user/update]
-
-Change and persist the user data.[PUT]
+## Change and persist the user data.[/user/update] [PUT]
 
 * Request (application/json)
   * Headers
@@ -127,9 +121,7 @@ Change and persist the user data.[PUT]
   * Body
       {} (empty)
 
-## Logout [/logout]
-
-### Logout completely [POST]
+## Logout completely  [/logout] [POST]
 
 Remove the user session from the back-end and send them to the homepage.
 
@@ -144,9 +136,7 @@ Remove the user session from the back-end and send them to the homepage.
       "logout": true
     }
 
-## Growth Profiles [/growthprofile/{uid}]
-
-### Get templates. [GET]
+## Get templates (Todo). [/growthprofile/{uid}] [GET]
 
 Retrieve growth profile templates.
 
@@ -178,7 +168,7 @@ Retrieve growth profile templates.
       },
     ]
 
-### Get growth profile list. [GET]
+## Get growth profile list. (Todo) [GET]
 
 Retrieve the growth profile list published by the user.
 
@@ -209,7 +199,7 @@ Retrieve the growth profile list published by the user.
       }
     ]
 
-### Create growth profile list of a user. [POST]
+## Create growth profile list of a user. (Todo) [POST]
 
 * Request (application/json)
   * Headers
@@ -230,7 +220,7 @@ Retrieve the growth profile list published by the user.
         status: "created"
     }
 
-### Update / Delete growth profile list of a user. [PUT]
+## Update / Delete growth profile list of a user. (Todo) [PUT]
 
 * Request (application/json)
   * Headers
@@ -252,9 +242,13 @@ Retrieve the growth profile list published by the user.
     status: "updated"
   }
 
-## Attendance [/attendance]
+## Select attendance list [/attendance/{?from,?to,?class,?name}] [GET]
 
-### Get attendance list. [GET]
++ Parameters
+    + from (optional) - Date from
+    + to (optional) - Date to
+    + class (optional) - class
+    + name (optional) - name
 
 Retrieve the attendance list.
 
@@ -262,82 +256,38 @@ Retrieve the attendance list.
   * Headers
       Accepts: application/json
       Authorization: Bearer XYZDSFDSF
-  * Body
-    {
-        "from": "2018-06-20",
-        "to": "2018-06-21"
-    }
+  * QueryParameter
+        "from": from date,
+        "to": to date",
+        "class": class name,
+        "name": kid name
 
 * Response 200 (application/json)
-    {
-      "count": 100,
-      "data": [
+    【
         {
+            "id": 1,
             "date": "2018-06-20",
-            "attendances": [
-                {
-                    "id": 1,
-                    "name": "HuHu Dog",
-                    "attend": true,
-                },
-                {
-                    "id": 2,
-                    "name": "HuHu Cat",
-                    "attend": false,
-                },
-                {
-                    "id": 3,
-                    "name": "HuHu Tiger",
-                    "attend": false,
-                }
-            ]
-        },
+            "name": "HuHu Dog",
+            "class": "小1班"
+        }，
         {
+            "id": 2,
             "date": "2018-06-21",
-            "attendances": [
-                {
-                    "id": 1,
-                    "name": "HuHu Dog",
-                    "attend": false,
-                },
-                {
-                    "id": 2,
-                    "name": "HuHu Cat",
-                    "attend": true,
-                },
-                {
-                    "id": 3,
-                    "name": "HuHu Tiger",
-                    "attend": false,
-                }
-            ]
-        },
-      ]
-    }
+            "name": "HuHu Cat",
+            "class": "小2班"
+        }，
+        {
+            "id": 3,
+            "date": "2018-06-22",
+            "name": "HuHu Tiger",
+            "class": "小3班"
+        }，
+    ]
 
-### Upload attendance list excel. [POST]
+## Upload attendance list excel. [/attendance] [POST]
 
 * Headers
       Accepts: multipart/form-data
       Authorization: Bearer XYZDSFDSF
 * Response 200 (application/json)
-    {
-        "status": "updated",
-        "updatedcount": 100
-    }
-
-### Update attendance list. [PUT]
-
-* Headers
-      Accepts: multipart/form-data
-      Authorization: Bearer XYZDSFDSF
-* Body
-    {
-        id: 3
-        "attend": false
-    }
-
-* Response 200 (application/json)
-    {
-        "status": "updated"
-    }
+    {}
