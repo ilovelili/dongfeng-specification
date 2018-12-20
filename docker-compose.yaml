@@ -71,7 +71,7 @@ services:
     depends_on:    
     - dongfeng.svc.core.server
     - dongfeng.svc.attendance.server
-    - dongfeng.svc.physique.server
+    # - dongfeng.svc.physique.server
     - micro_api
   # dongfeng.svc.websocket:    
   #   image: ilovelili/dongfeng-websocket:latest
