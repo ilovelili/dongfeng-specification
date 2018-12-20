@@ -291,3 +291,38 @@ Retrieve the attendance list.
       Authorization: Bearer XYZDSFDSF
 * Response 200 (application/json)
     {}
+
+## Select name list [/namelist/{?class,?year}] [GET]
+
++ Parameters
+    + class (optional) - class
+    + year (optional) - year
+
+Retrieve the attendance list.
+
+* Request (application/json)
+  * Headers
+      Accepts: application/json
+      Authorization: Bearer XYZDSFDSF
+  * QueryParameter
+        "class": class name,
+        "year": year
+
+* Response 200 (application/json)
+    【
+        {
+            "year": "2018",
+            "name": "HuHu Dog",
+            "class": "小1班"
+        }，
+        {
+            "year": "2018-06-21",
+            "name": "HuHu Cat",
+            "class": "小2班"
+        }，
+        {
+            "year": "2018-06-22",
+            "name": "HuHu Tiger",
+            "class": "小3班"
+        }，
+    ]
