@@ -48,17 +48,17 @@ services:
     restart: always
     depends_on:
     - consul
-  dongfeng.svc.physique.server:    
-    image: ilovelili/dongfeng-physique:latest
-    command: [
-      "./server"
-    ]
-    environment:
-      - MICRO_REGISTRY=consul
-      - MICRO_REGISTRY_ADDRESS=consul:8500
-    restart: always
-    depends_on:
-    - consul
+  # dongfeng.svc.physique.server:    
+  #   image: ilovelili/dongfeng-physique:latest
+  #   command: [
+  #     "./server"
+  #   ]
+  #   environment:
+  #     - MICRO_REGISTRY=consul
+  #     - MICRO_REGISTRY_ADDRESS=consul:8500
+  #   restart: always
+  #   depends_on:
+  #   - consul
   dongfeng.svc.core.proxy:    
     image: ilovelili/dongfeng-core-proxy:latest
     command: [
