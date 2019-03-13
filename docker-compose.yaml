@@ -80,7 +80,7 @@ services:
       "start"
     ]
     environment:
-      - env=prod    
+      - environment=prod    
     restart: always
     ports:
     - "80:4200"
