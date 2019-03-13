@@ -73,6 +73,22 @@ services:
     - dongfeng.svc.attendance.server
     # - dongfeng.svc.physique.server
     - micro_api
+  dongfeng.admin.panel:    
+    image: ilovelili/dongfeng-admin-panel:latest
+    command: [
+      "npm",
+      "start"
+    ]
+    environment:
+      - env=prod    
+    restart: always
+    ports:
+    - "80:4200"
+    depends_on:
+    - dongfeng.svc.core.proxy
+    - dongfeng.svc.core.server
+    - dongfeng.svc.attendance.server    
+    - micro_api
   # dongfeng.svc.websocket:    
   #   image: ilovelili/dongfeng-websocket:latest
   #   command: [
