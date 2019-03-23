@@ -74,7 +74,7 @@ services:
     # - dongfeng.svc.physique.server
     - micro_api
   dongfeng.admin.panel:    
-    image: ilovelili/dongfeng-admin-panel:latest
+    image: ilovelili/dongfeng-admin-panel:prod
     command: [
       "npm",
       "start"
