@@ -75,15 +75,9 @@ services:
     - micro_api
   dongfeng.admin.panel:    
     image: ilovelili/dongfeng-admin-panel:prod
-    command: [
-      "npm",
-      "start"
-    ]
-    environment:
-      - environment=prod    
     restart: always
     ports:
-    - "80:4200"
+    - "80:80"
     depends_on:
     - dongfeng.svc.core.proxy
     - dongfeng.svc.core.server
