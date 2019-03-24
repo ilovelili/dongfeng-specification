@@ -20,12 +20,12 @@ services:
       - MICRO_API_ADDRESS=0.0.0.0:8080
       - MICRO_API_NAMESPACE=dongfeng.svc.core.proxy
       - MICRO_API_HANDLER=proxy
-      - MICRO_API_CORS=*
+      - MICRO_API_CORS=http://47.110.143.96,http://localhost
     restart: always
     depends_on:
     - consul
     ports:
-    - "80:8080"
+    - "8080:8080"
   dongfeng.svc.core.server:    
     image: ilovelili/dongfeng-core:latest
     command: [
