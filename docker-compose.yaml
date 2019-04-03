@@ -36,29 +36,7 @@ services:
       - MICRO_REGISTRY_ADDRESS=consul:8500
     restart: always
     depends_on:
-    - consul
-  dongfeng.svc.attendance.server:    
-    image: ilovelili/dongfeng-attendance:latest
-    command: [
-      "./server"
-    ]
-    environment:
-      - MICRO_REGISTRY=consul
-      - MICRO_REGISTRY_ADDRESS=consul:8500
-    restart: always
-    depends_on:
-    - consul
-  # dongfeng.svc.physique.server:    
-  #   image: ilovelili/dongfeng-physique:latest
-  #   command: [
-  #     "./server"
-  #   ]
-  #   environment:
-  #     - MICRO_REGISTRY=consul
-  #     - MICRO_REGISTRY_ADDRESS=consul:8500
-  #   restart: always
-  #   depends_on:
-  #   - consul
+    - consul  
   dongfeng.svc.core.proxy:    
     image: ilovelili/dongfeng-core-proxy:latest
     command: [
@@ -69,9 +47,7 @@ services:
       - MICRO_REGISTRY_ADDRESS=consul:8500      
     restart: always
     depends_on:    
-    - dongfeng.svc.core.server
-    - dongfeng.svc.attendance.server
-    # - dongfeng.svc.physique.server
+    - dongfeng.svc.core.server    
     - micro_api
   dongfeng.admin.panel:    
     image: ilovelili/dongfeng-admin-panel:prod
@@ -80,12 +56,5 @@ services:
     - "80:80"
     depends_on:
     - dongfeng.svc.core.proxy
-    - dongfeng.svc.core.server
-    - dongfeng.svc.attendance.server    
+    - dongfeng.svc.core.server      
     - micro_api
-  # dongfeng.svc.websocket:    
-  #   image: ilovelili/dongfeng-websocket:latest
-  #   command: [
-  #     "./server"
-  #   ]  
-  #   restart: always 
