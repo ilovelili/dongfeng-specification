@@ -10,7 +10,7 @@ services:
       - "8300:8300"
       - "8400:8400"
       - "8500:8500"
-      - "8600:53/udp"    
+      - "8600:53/udp"
   micro_api:
     image: ilovelili/micro:latest
     command: api
@@ -26,7 +26,7 @@ services:
     - consul
     ports:
     - "8080:8080"
-  dongfeng.svc.core.server:    
+  dongfeng.svc.core.server:
     image: ilovelili/dongfeng-core:latest
     command: [
       "./server"
@@ -37,24 +37,24 @@ services:
     restart: always
     depends_on:
     - consul  
-  dongfeng.svc.core.proxy:    
+  dongfeng.svc.core.proxy:
     image: ilovelili/dongfeng-core-proxy:latest
     command: [
       "./server"
     ]
     environment:
       - MICRO_REGISTRY=consul
-      - MICRO_REGISTRY_ADDRESS=consul:8500      
+      - MICRO_REGISTRY_ADDRESS=consul:8500
     restart: always
-    depends_on:    
-    - dongfeng.svc.core.server    
-    - micro_api
-  dongfeng.admin.panel:    
+    depends_on:
+    - dongfeng.svc.core.server
+    - micro_api  
+  dongfeng.admin.panel:
     image: ilovelili/dongfeng-admin-panel:prod
     restart: always
     ports:
     - "80:80"
     depends_on:
     - dongfeng.svc.core.proxy
-    - dongfeng.svc.core.server      
+    - dongfeng.svc.core.server
     - micro_api
