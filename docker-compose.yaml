@@ -58,3 +58,19 @@ services:
     - dongfeng.svc.core.proxy
     - dongfeng.svc.core.server
     - micro_api
+#   mysql-dongfeng-core:
+#     image: mysql:5.7
+#     restart: always
+#     volumes:
+#       - dongfeng-core:/var/lib/mysql/
+#     ports:
+#       - "3306:3306"
+#     environment:
+#       MYSQL_ROOT_PASSWORD: root
+#       MYSQL_DATABASE: dongfeng_core
+#       MYSQL_USER: dongfeng
+#       MYSQL_PASSWORD: Aa!7059970599
+#       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+
+# volumes: 
+#   dongfeng-core:
