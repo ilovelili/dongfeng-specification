@@ -58,7 +58,7 @@ services:
     - dongfeng.svc.core.proxy
     - dongfeng.svc.core.server
     - micro_api
-#   mysql-dongfeng-core:
+#   mysql:
 #     image: mysql:5.7
 #     restart: always
 #     volumes:
