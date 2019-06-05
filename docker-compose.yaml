@@ -34,6 +34,8 @@ services:
     environment:
       - MICRO_REGISTRY=consul
       - MICRO_REGISTRY_ADDRESS=consul:8500
+    volumes:
+      - ./ebook:/root/ebook
     restart: always
     depends_on:
     - consul  
