@@ -26,8 +26,3 @@ services:
     - consul
     ports:
     - "8080:8080"
-  dongfeng.admin.panel:
-    image: ilovelili/dongfeng-admin-panel:prod
-    restart: always
-    ports:
-    - "80:80"
