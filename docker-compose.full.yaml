@@ -26,6 +26,11 @@ services:
     - consul
     ports:
     - "8080:8080"
+  chrome_headless:
+    image: ilovelili/chrome_headless:latest    
+    restart: always    
+    ports:
+    - "9222:9222"
   dongfeng.svc.core.server:
     image: ilovelili/dongfeng-core:latest
     command: [
@@ -34,11 +39,13 @@ services:
     environment:
       - MICRO_REGISTRY=consul
       - MICRO_REGISTRY_ADDRESS=consul:8500
+      - CHROME_DEV_TOOL=chrome_headless:9222
     volumes:
       -  /root/dongfeng/ebook:/root/ebook
     restart: always
     depends_on:
-    - consul  
+    - consul
+    - chrome_headless
   dongfeng.svc.core.proxy:
     image: ilovelili/dongfeng-core-proxy:latest
     command: [
@@ -50,7 +57,7 @@ services:
     restart: always
     depends_on:
     - dongfeng.svc.core.server
-    - micro_api  
+    - micro_api
   dongfeng.admin.panel:
     image: ilovelili/dongfeng-admin-panel:prod
     restart: always

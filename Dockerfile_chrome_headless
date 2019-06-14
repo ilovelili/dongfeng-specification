@@ -1,0 +1,9 @@
+FROM zenika/alpine-chrome:latest
+
+LABEL maintainer="<route666@live.cn>"
+
+EXPOSE 9222
+
+ENTRYPOINT ["chromium-browser"]
+
+CMD ["--headless", "--disable-gpu", "--remote-debugging-port=9222", "--no-sandbox"]
