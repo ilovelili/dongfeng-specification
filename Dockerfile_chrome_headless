@@ -2,6 +2,17 @@ FROM zenika/alpine-chrome:latest
 
 LABEL maintainer="<route666@live.cn>"
 
+USER root
+
+# Chinese support
+RUN apk update \
+    && apk add --no-cache curl fontconfig \
+    && curl -O https://noto-website.storage.googleapis.com/pkgs/NotoSansCJKsc-hinted.zip \
+    && mkdir -p /usr/share/fonts/NotoSansCJKsc \
+    && unzip NotoSansCJKsc-hinted.zip -d /usr/share/fonts/NotoSansCJKsc/ \
+    && rm NotoSansCJKsc-hinted.zip \
+    && fc-cache -fv \
+
 EXPOSE 9222
 
 ENTRYPOINT ["chromium-browser"]
