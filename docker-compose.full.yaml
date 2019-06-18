@@ -32,10 +32,7 @@ services:
     ports:
     - "9222:9222"
   dongfeng.svc.core.server:
-    image: ilovelili/dongfeng-core:latest
-    command: [
-      "./server"
-    ]
+    image: ilovelili/dongfeng-core:latest    
     environment:
       - MICRO_REGISTRY=consul
       - MICRO_REGISTRY_ADDRESS=consul:8500
@@ -47,10 +44,7 @@ services:
     - consul
     - chrome_headless
   dongfeng.svc.core.proxy:
-    image: ilovelili/dongfeng-core-proxy:latest
-    command: [
-      "./server"
-    ]
+    image: ilovelili/dongfeng-core-proxy:latest    
     environment:
       - MICRO_REGISTRY=consul
       - MICRO_REGISTRY_ADDRESS=consul:8500
