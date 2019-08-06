@@ -12,16 +12,12 @@ services:
       - "8500:8500"
       - "8600:53/udp"
   micro_api:
-    image: ilovelili/micro:latest
+    image: ilovelili/micro:1.8.2
     command: api
-    environment:
-      - MICRO_REGISTRY=consul
-      - MICRO_REGISTRY_ADDRESS=consul:8500
+    environment:      
       - MICRO_API_ADDRESS=0.0.0.0:8080
       - MICRO_API_NAMESPACE=dongfeng.svc.core.proxy
-      - MICRO_API_HANDLER=proxy
-      - MICRO_API_CORS=*
-    restart: always
+      - MICRO_API_HANDLER=http      
     depends_on:
     - consul
     ports:
