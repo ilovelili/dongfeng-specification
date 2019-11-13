@@ -13,7 +13,7 @@ services:
       - "8600:53/udp"
   micro_api:
     image: ilovelili/micro:1.8.2
-    command: api
+    command: --registry_address=consul:8500 --register_interval=5 --register_ttl=10 api
     environment:      
       - MICRO_API_ADDRESS=0.0.0.0:8080
       - MICRO_API_NAMESPACE=dongfeng.svc.core.proxy
