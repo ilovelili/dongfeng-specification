@@ -1,8 +1,4 @@
 #!/bin/sh
 
-# cd /root/dongfeng/spec
-
-docker-compose stop
-docker-compose rm -f
-docker-compose pull
+docker-compose down --remove-orphans
 docker-compose up -d --remove-orphans
